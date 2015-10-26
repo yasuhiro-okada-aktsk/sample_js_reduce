@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script>
+  function a(p) {
+    console.log("call a(" + p + ")");
+    return "result a";
+  }
+
+  function b(p) {
+    console.log("call b(" + p + ")");
+    return "result b";
+  }
+
+  function c(p) {
+    console.log("call c(" + p + ")");
+    return "result c";
+  }
+
+  function d(p) {
+    console.log("call d(" + p + ")");
+    return "result d";
+  }
+
+  function pipe(funcs, init) {
+    return funcs.reduce(function (prevResult, f) {
+      return f(prevResult)
+    }, init);
+  }
+
+  console.log(pipe([a, b, c, d], "init"));
+</script>
+</body>
+</html>
